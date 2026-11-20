@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+- New package `mask`: binary mask creation from arbitrary images (`Binarize`, `BinarizeRegion`, `ToRGBA`) with custom bounds and global-coordinate preservation, morphological operations (`Dilate`, `Erode`, `Open`, `Close`) with rectangle, cross and custom structuring elements, and mask-guided compositing (`Composite`) with foreground opacity and mask strength
+- New CLI commands under `segment`: `mask`, `dilate`, `erode`, `open`, `close` and `composite`
+
 ## 0.17.1
 - Fix transparent pixels when resizing with the Box filter by @youdie006 in https://github.com/anthonynsimon/bild/pull/115
 - Bump golang.org/x/image from 0.44.0 to 0.45.0 to address CVE-2026-46603 in the VP8L decoder, reported in https://github.com/anthonynsimon/bild/pull/116
