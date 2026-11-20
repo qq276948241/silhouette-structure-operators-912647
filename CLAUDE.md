@@ -27,6 +27,7 @@ Each image processing domain is its own importable package:
 - `effect/` — grayscale, sepia, sharpen, sobel, invert, median, erode, dilate, emboss, edge detection
 - `histogram/` — histogram analysis and visualization
 - `imgio/` — image I/O (PNG, JPEG, BMP)
+- `mask/` — binary masks: binarize, morphology (dilate/erode/open/close), mask-guided compositing
 - `noise/` — noise generation (uniform, binary, gaussian, perlin)
 - `paint/` — flood fill
 - `segment/` — thresholding

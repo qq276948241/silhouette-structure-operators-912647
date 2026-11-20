@@ -320,6 +320,32 @@ The CLI selects the encoder from the output file extension (`.png`, `.jpg`/`.jpe
 ![example](assets/img/threshold.jpg)
 
 
+## Binary masks
+    import "github.com/anthonynsimon/bild/mask"
+
+### Binarize
+    // Threshold any image into a binary mask, preserving its global coordinates.
+    m, err := mask.Binarize(img, 128)
+
+### Morphology
+    // Structuring elements: mask.Rectangle, mask.Cross or mask.NewKernel (custom).
+    k, err := mask.Rectangle(3, 3)
+    dilated, err := mask.Dilate(m, k, 1)
+    eroded, err := mask.Erode(m, k, 1)
+    opened, err := mask.Open(m, k, 1)   // idempotent
+    closed, err := mask.Close(m, k, 1)  // idempotent
+
+### Composite
+    // Overlay fg onto bg only where the mask is set, with optional
+    // foreground opacity and mask strength. Images are aligned by global
+    // coordinates and may differ in size and origin.
+    result, err := mask.Composite(bg, fg, m, 1.0, 1.0)
+
+These operations are also available from the CLI under `segment`:
+`segment mask`, `segment dilate`, `segment erode`, `segment open`,
+`segment close` and `segment composite`.
+
+
 ## Transform
     import "github.com/anthonynsimon/bild/transform"
 
